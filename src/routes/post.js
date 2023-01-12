@@ -10,6 +10,14 @@ router.post('/webhook', async (req, res) => {
     // Send a 200 OK response if this is a page webhook
 
     if (body.object === "page") {
+        //iterate each entry -- there may be multiple entries
+        for(let entry of body.entry) {
+            let webhook_event = entry.messaging[0]
+            console.log(webhook_event)
+
+            let sender_psid = webhook_event.sender.id
+            console.log('Sender ID is: '+ sender_psid)
+        }
         // Returns a '200 OK' response to all requests
         res.status(200).send("EVENT_RECEIVED");
     } else {
