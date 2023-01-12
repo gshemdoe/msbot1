@@ -73,7 +73,7 @@ function callSendAPI(sender_psid, response) {
     axios.post('https://graph.facebook.com/v2.6/me/messages', {
         "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
     }).then(()=> console.log('Message sent'))
-    .catch((err)=> console.log(err.message))
+    .catch((err)=> console.log(err))
 
     // request({
     //   "uri": "https://graph.facebook.com/v2.6/me/messages",
