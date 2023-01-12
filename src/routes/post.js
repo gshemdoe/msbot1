@@ -72,6 +72,7 @@ function callSendAPI(sender_psid, response) {
     // Send the HTTP request to the Messenger Platform
     axios.post('https://graph.facebook.com/v2.6/me/messages', {
         "qs": { "access_token": process.env.PAGE_ACCESS_TOKEN },
+        "json": request_body
     }).then(()=> console.log('Message sent'))
     .catch((err)=> console.log(err))
 
